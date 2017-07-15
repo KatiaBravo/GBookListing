@@ -53,7 +53,7 @@ public abstract class BookActivity extends AppCompatActivity implements LoaderMa
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Book currentBook = mAdapter.getItem(position);
-                Uri bookUrl = Uri.parse(currentBook.());
+                Uri bookUrl = Uri.parse(currentBook.getAuthor());
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, bookUrl);
                 startActivity(websiteIntent);
             }
@@ -63,10 +63,6 @@ public abstract class BookActivity extends AppCompatActivity implements LoaderMa
         bookListView.setEmptyView(mEmptyStateTextView);
     }
 
-    public String returnSearchUrl (EditText searchBar) {
-        searchBar = (EditText) findViewById(R.id.search_bar);
-        return searchBar.getText().toString().toLowerCase();
-    }
     @Override
     public android.support.v4.content.Loader<List<Book>> onCreateLoader(int i, Bundle bundle) {
         return new BookLoader(this, BOOK_REQUEST_URL);

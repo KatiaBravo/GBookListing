@@ -12,7 +12,7 @@ import java.util.List;
 public class BookLoader extends AsyncTaskLoader<List<Book>> {
 
     private static final String LOG_TAG = BookLoader.class.getName();
-    private String mU vbrl;
+    private String mUrl;
 
     public BookLoader(Context context, String url) {
         super(context);
@@ -32,4 +32,5 @@ public class BookLoader extends AsyncTaskLoader<List<Book>> {
         return books;
     }
 }
+//When bookloader is called, the url has to have the incluede search query
 
